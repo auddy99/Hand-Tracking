@@ -11,7 +11,7 @@ var b64Text = null;
 var caption = null;
 
 $(document).ready(function(){
-  console.log("hello");
+  console.log("Document Ready");
   initVideo();
 });
 
@@ -70,8 +70,8 @@ function takepicture() {
 
     var data = canvas.toDataURL('image/png');
     console.log(data);
-    photo.setAttribute('src', data);
     b64Text.setAttribute('value', data);
+    $("#submit").click();
   } else {
     clearphoto();
   }
@@ -94,6 +94,7 @@ $("#mainForm").on('submit', function(event){
   })
   .done(function(data){
     console.log(data.verdict);
+    photo.setAttribute('src', data.imgURL);
   })
   event.preventDefault();
 });

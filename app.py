@@ -1,7 +1,10 @@
 from flask import Flask,render_template,request,Markup,jsonify
+import cv2
+import base64
 import warnings
 warnings.filterwarnings("ignore")
 
+from utilMethods import *
 
 # FLASK PART
 
@@ -14,8 +17,12 @@ def home():
 
 @app.route('/show',methods=['POST'])
 def show():
-	print(str(request.form["b64"]))
-	return jsonify({'verdict':"1"})
+	b64 = str(request.form["b64"])
+	img = readb64(b64)
+	cv2.putText(img, 'hello', (20, 40), cv2.FONT_HERSHEY_PLAIN, 3.0, (255,0,0), thickness=4)
+	b64 = "data:image/png;base64," + readImg(img)
+
+	return jsonify({'verdict':'1','imgURL':b64})
 
 
 if(__name__ == '__main__'):
