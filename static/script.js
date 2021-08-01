@@ -12,7 +12,7 @@ var caption = null;
 
 $(document).ready(function(){
   console.log("Document Ready");
-  initVideo();
+  // initVideo();
 });
 
 function initVideo(){
