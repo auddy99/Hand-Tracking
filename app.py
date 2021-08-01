@@ -1,5 +1,5 @@
 from flask import Flask,render_template,request,Markup,jsonify
-# import cv2
+import cv2
 import base64
 import warnings
 warnings.filterwarnings("ignore")
