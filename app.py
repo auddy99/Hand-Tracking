@@ -4,7 +4,7 @@ import base64
 import warnings
 warnings.filterwarnings("ignore")
 
-from utilMethods import *
+# from utilMethods import *
 
 # FLASK PART
 
@@ -18,9 +18,9 @@ def home():
 @app.route('/show',methods=['POST'])
 def show():
 	b64 = str(request.form["b64"])
-	img = readb64(b64)
-	cv2.putText(img, 'hello', (20, 40), cv2.FONT_HERSHEY_PLAIN, 3.0, (255,0,0), thickness=4)
-	b64 = "data:image/png;base64," + readImg(img)
+	# img = readb64(b64)
+	# cv2.putText(img, 'hello', (20, 40), cv2.FONT_HERSHEY_PLAIN, 3.0, (255,0,0), thickness=4)
+	# b64 = "data:image/png;base64," + readImg(img)
 
 	return jsonify({'verdict':'1','imgURL':b64})
 
