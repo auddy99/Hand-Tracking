@@ -12,10 +12,10 @@ app = Flask(__name__)
 def home():
 	return render_template('index.html')
 
-# @app.route('/show',methods=['POST'])
-# def show():
-# 	print(str(request.form["b64"]))
-# 	return jsonify({'verdict':"1"})
+@app.route('/show',methods=['POST'])
+def show():
+	print(str(request.form["b64"]))
+	return jsonify({'verdict':"1"})
 
 
 if(__name__ == '__main__'):
